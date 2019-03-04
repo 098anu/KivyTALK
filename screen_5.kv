@@ -1,0 +1,110 @@
+#: import Window kivy.core.window.Window
+#: import Screen5 screen_5.Screen5
+<Screen5@Screen>:
+    name:'screen_5'
+    BoxLayout:
+        imgchg:imgchg
+        orientation:'vertical'
+        canvas:
+            Color:
+                rgba:1,1,1,1
+            Rectangle:
+                size:self.size
+                pos:self.pos
+                source:'we.jpg'
+
+            
+        BoxLayout:
+            size_hint:1,0.1
+            orientation:'vertical'
+            canvas:
+                Color:
+                    rgba:1,1,1,1
+                Rectangle:
+                    size:self.size
+                    pos:self.pos
+            Label:
+                text:'[size=20][color=#008000][b]Create Your Profile[/b][/size]'
+                markup:True
+                canvas:
+                    Color:
+                        rgba:0,0,0,1
+                    Line:
+                        points: self.x + 20, self.y, self.x + self.width - 20, self.y
+                        width: 1
+        BoxLayout:
+            size_hint:1,0.05
+        BoxLayout:
+            orientation:'vertical'
+            size_hint:0.2,0.2
+            id:imgchg
+            pos_hint:{'center_x':0.5,'center_y':0.5}
+            canvas.after:
+                Color:
+                    rgba:1,1,1,0.7
+                RoundedRectangle:
+                    size: (self.size[1]-dp(14), self.size[1]-dp(14))
+                    pos: (self.pos[0]+(self.size[0]-self.size[1])/2, self.pos[1]+dp(7))
+                    source: root.imagesource
+                    radius: [self.size[1]-(self.size[1]/2)]
+            NavigationDrawerIconButton:
+                icon:'camera-add'
+                pos_hint:{'center_x':0.05,'center_y':0.05}
+                on_press:root.chg()
+            
+        BoxLayout:
+            size_hint:1,0.05   
+        BoxLayout:
+            orientation:'horizontal'
+            size_hint: 0.7,None
+            pos_hint:{'center_x':0.5,'center_y':0.5}                                    
+            height:40
+            NavigationDrawerIconButton:
+                icon:'account'
+                size_hint: None,None
+                size:40,40
+            BoxLayout:
+                canvas:
+                    Color:
+                        rgba:1,1,1,1
+                    Rectangle:
+                        size:self.size
+                        pos:self.pos
+                TextInput:
+                                                    
+                    hint_text:'Name'
+                    size_hint: 0.4,None
+                    height:40
+                    background_color: 0,0,0,0
+                    canvas.before:
+                
+                        Line:
+                            points: self.x, self.y, self.x + self.width-20, self.y
+                            width: 1
+        BoxLayout:
+            size_hint:1,0.1
+            padding:10,10
+            
+            Label:
+                text:'[b][color=#008000]You can find and edit this info in your settings[/color][/b]'
+                markup:True
+                text_size:self.width,None
+                halign:'center'
+                valign:'center'
+                
+                size:self.texture_size
+        BoxLayout:
+            size_hint:1,0.1
+        BoxLayout:
+            size_hint:0.7,0.3
+            pos_hint:{'center_x':0.5,'center_y':0.5}
+            Button:
+                text:'NEXT'
+                size_hint:0.7,None
+                height:40
+                pos_hint:{'center_x':0.5,'center_y':0.5}
+                background_normal:'kt31.png'
+                background_down:'kt31.png'
+                on_press:root.antry()
+                    
+

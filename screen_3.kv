@@ -1,0 +1,79 @@
+#:import Screen3 screen_3.Screen3
+<Screen3@Screen>:
+    name:'screen_3'
+    BoxLayout:
+        orientation:'vertical'
+        canvas:
+            Color:
+                rgba:1,1,1,1
+            Rectangle:
+                size:self.size
+                pos:self.pos
+                source:'df1.jpg'
+        BoxLayout:
+            size_hint:1,0.3
+        
+        BoxLayout:
+            size_hint:1,0.4
+            orientation:'vertical'
+            canvas:
+                Color:
+                    rgba:0,0,0,0
+                Rectangle:
+                    size:self.size
+                    pos:self.pos
+            Image:
+                source:'kt17.png'
+                id:log
+                pos_hint:{'center_x':0.5,'center_y':0.5}                 
+            Label:
+                text:'[i][b][size=20]WELCOME TO KIVYTALK[/size][/b][/i]'
+                markup:True
+                line:2
+
+
+
+        
+               
+        BoxLayout:
+            orientation:'vertical'
+            pos_hint:{'center_x':0.5,'center_y':0.5}
+            size_hint:1,0.3	
+            padding:10,10	
+            Label:
+                text:"Tap 'Agree & Continue' to accept KivyTalk"
+                markup:True
+                text_size:self.size
+                halign:'center'
+                background_color:0,0,0,0
+                valign:'center'
+                pos_hint:{'center_x':0.5,'center_y':0.5}                
+                size_hint_y:None
+        BoxLayout:
+            orientation:'vertical'  
+            pos_hint:{'center_x':0.5,'center_y':0.5}
+            size_hint:1,0.15
+            padding:10,10		              
+            Button:
+                text:"[u][color=EBF5FB]Terms Of Services[/color][/u]"
+                markup:True
+                text_size:self.size
+                halign:'center'
+                background_color:0,0,0,0
+                valign:'center'
+                pos_hint:{'center_x':0.5,'center_y':0.5}                
+                size_hint_y:None
+                height:80
+                on_press:root.terms()
+            
+            
+
+            Button:
+                background_color:0,0,0,0.5
+                size_hint:0.7,None
+                height:40                
+                pos_hint:{'center_x':0.5,'center_y':0.5}
+                text:'AGREE & CONTINUE'
+                on_press:root.agree()              
+            BoxLayout:
+                size_hint_y:0.2                        

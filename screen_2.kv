@@ -1,0 +1,96 @@
+#:import Screen2 screen_2.Screen2
+<Screen2@Screen>:
+    name:'screen_2'
+    BoxLayout:
+        orientation:'vertical'
+        canvas:
+            Color:
+                rgba:1,1,1,1
+            Rectangle:
+                size:self.size
+                pos:self.pos
+                source:'df1.jpg'
+        BoxLayout:
+            size_hint:1,0.2
+        
+        BoxLayout:
+            size_hint:1,0.3
+            canvas:
+                Color:
+                    rgba:0,0,0,0.4
+                Rectangle:
+                    size:self.size
+                    pos:self.pos
+                    
+            Label:
+                text:'[b][size=20]    KivyTalk[/size][/b]\nLet\'s Talk Kivy Way'
+                markup:True
+        
+               
+        BoxLayout:
+            orientation:'vertical'
+            Label:
+                text:"[size=20]        Enter OTP to Login[/size]"
+                markup:True
+                text_size:self.size
+                halign:'left'
+                valign:'center'
+                size_hint_y:None
+                height:80
+            TextInput:
+                hint_text:'___ ___ ___ ___'
+                id:txt2
+                size_hint:0.35,None
+                height:40
+                cursor_color: 1,1,1,1
+                pos_hint:{'center_x':0.5,'center_y':0.5}
+                background_color:0,0,0,0.5
+                canvas.before:
+                    Color:
+                        rgba: 1,1,1,1
+                    Line:
+                        width: 1
+                        rectangle: self.x, self.y, self.width, self.height
+
+            BoxLayout:
+                size_hint_y:0.1
+            Button:
+                
+                background_color: 0,0,0,0  # the last zero is the critical on, make invisible
+                pos_hint:{'center_x':0.5,'center_y':0.5}
+                canvas.before:
+                    Color:
+                        rgba: (0,0,0,0.5) if self.state=='normal' else (0,0,0,0.5)  # visual feedback of press
+                    RoundedRectangle:
+                        pos: self.pos
+                        size: self.size
+                        radius: [20,]
+                size_hint:0.7,None
+                height:40
+                text:'LOGIN'
+                on_press:root.verify(txt2.text)
+            BoxLayout:
+                size_hint_y:0.5
+            
+        BoxLayout:
+            canvas:
+                Color:
+                    rgba:0,0,0,0.4
+                Rectangle:
+                    size:self.size
+                    pos:self.pos
+            size_hint:1,None
+            height:40
+            Image:
+                source:'kt6.png'
+                pos_hint:{'center_x':0.1,'center_y':0.6}
+            BoxLayout:
+                size_hint:None,0.1
+                width:50
+            Label:
+                text:'Powered By Kivy-2019'
+                color:1,1,1,0.8
+                text_size:root.width,None
+                size:self.texture_size
+                
+                

@@ -1,0 +1,114 @@
+#: import Window kivy.core.window.Window
+#:import * screen_7
+
+#: import ListAdapter kivy.adapters.listadapter.ListAdapter
+#: import Window kivy.core.window.Window
+#: import ListItemButton kivy.uix.listview.ListItemButton
+<Screen7@Screen>:
+    name:'screen_7'
+    BoxLayout:
+        orientation:'vertical'
+        BoxLayout:
+            size_hint:1,0.15
+            padding:10,10
+            canvas:
+                Color:
+                    rgba:1,1,1,1
+                Rectangle:
+                    size:self.size
+                    pos:self.pos
+                    source:'kt31.png'
+            MDIconButton:
+                icon:'long-arrow-left'
+                on_press:root.chg()
+            Label:
+                text:'[b][size=20]Select Contact[/size][b]'
+                markup:True
+                text_size:self.width,None
+                size:self.texture_size
+            MDIconButton:
+                icon:'search'
+            MDIconButton:
+                icon:'more-vert'
+        BoxLayout:
+            orientation:'vertical'
+            ScrollView:
+                BoxLayout:
+                    orientation:"vertical"
+                    size_hint_y:None
+                    height:Window.height * 1.75
+                    padding:10,10
+                    canvas:
+                        Color:
+                            rgba:1,1,1,1
+                        Rectangle:
+                            size:self.size
+                            pos:self.pos
+                    BoxLayout:
+                        canvas:
+                            Color:
+                                rgba:1,1,1,1
+                            Rectangle:
+                                size:self.size
+                                pos:self.pos
+                        size_hint:1,None
+                        height:40
+                        Image:
+                            source:'kt39.png'
+                            size_hint:None,None
+                            width:50
+                            height:40
+                        Button:
+                            text:'[b][size=18]    New Group[/size][/b]'
+                            markup:True
+                            text_size: self.size     
+                            halign: 'left'
+                            valign: 'center'
+                            background_color:0,0,0,0
+                            color:0,0,0,1
+                    BoxLayout:
+                        canvas:
+                            Color:
+                                rgba:1,1,1,1
+                            Rectangle:
+                                size:self.size
+                                pos:self.pos
+                        size_hint:1,None
+                        height:50
+                        Image:
+                            source:'kt37.jpg'
+                            size_hint:None,None
+                            width:50
+                            height:40
+                        Button:
+                            text:'[b][size=18]    Add Contact[/size][/b]'
+                            markup:True
+                            text_size: self.size     
+                            halign: 'left'
+                            valign: 'center'
+                            background_color:0,0,0,0
+                            color:0,0,0,1
+                    RV:
+                    NavigationDrawerIconButton:
+                        icon:'share'
+
+                        text:'INVITE FRIENDS'
+
+                    NavigationDrawerIconButton:
+
+                        icon:'help'
+
+                        text:'CONTACTS HELP'
+<RV>:
+    viewclass: 'NavigationDrawerIconButton'
+
+    RecycleBoxLayout:
+        default_size: None, dp(56)
+        default_size_hint: 1, None
+        size_hint_y: None
+        overScrollMode:False
+        height: self.minimum_height
+        orientation: 'vertical'
+
+
+                

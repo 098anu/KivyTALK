@@ -1,0 +1,342 @@
+#:import Screen6 screen_6.Screen6
+<Screen6@Screen>:
+    name:'screen_6'
+    nav1:nav1
+    nav2:nav2
+    sm:sm
+    BoxLayout:
+        orientation: 'vertical'
+        rows: 3
+        BoxLayout:
+            padding:10,10
+            size_hint:1,0.12
+            canvas:
+                Color:
+                    rgba:1,1,1,1
+                Rectangle:
+                    size:self.size
+                    pos:self.pos
+                    source:'kt31.png'
+            
+            Label:
+                text:'[b][size=20]KivyTalk[/size][/b]'
+                markup:True
+                text_size:self.width,None
+                size:self.texture_size
+
+            MDIconButton:
+                icon:'search'
+                text_color:1,1,1,1
+            MDIconButton:
+                icon:'more-vert'
+        BoxLayout:
+            
+            size_hint:1,0.1
+            canvas:
+                Color:
+                    rgba:1,1,1,1
+                Rectangle:
+                    size:self.size
+                    pos:self.pos
+                    source:'kt31.png'
+            MDIconButton:
+                icon:'camera'
+                on_press:root.do_capture()
+            Button:
+                text:'[b]CHATS[/b]'
+                color:1,1,1,1
+                id:btn
+                my_color:(0,128,0)
+                markup:True
+                background_color:0,0,0,0
+                on_press:root.chgscr()
+                
+                canvas:
+                    Color:
+                        rgb:self.my_color
+                    Line:
+                        points: self.x , self.y, self.x + self.width, self.y
+                        width: 3
+                    
+            Button:
+                text:'[b]STATUS[/b]'
+                id:btn1
+                color:1,1,1,1
+                markup:True
+                my_color:(0,0,0)
+                on_press:root.chgscr1()
+                background_color:0,0,0,0
+                canvas:
+                    Color:
+                        rgb:self.my_color
+                    Line:
+                        points: self.x , self.y, self.x + self.width, self.y
+                        width: 3
+                    
+                    
+            Button:
+                text:'[b]CALLS[/b]'
+                color:1,1,1,1
+                markup:True
+                my_color:(0,0,0)
+                id:btn2
+                on_press:root.chgscr2()
+                canvas:
+                    Color:
+                        rgb:self.my_color
+                    Line:
+                        points: self.x , self.y, self.x + self.width, self.y
+                        width: 3
+                    
+                background_color:0,0,0,0
+
+                on_press:sm.current = 'screen_one'
+
+
+        ScreenManager:
+            id: sm
+            size_hint_y: 0.8
+
+            Screen:
+                name: 'screen_one'
+                BoxLayout:
+                    orientation: 'vertical'
+                    canvas:
+                        Color:
+                            rgba:1,1,1,1
+                        Rectangle:
+                            size:self.size
+                            pos:self.pos
+                    orientation:'vertical'
+                    BoxLayout:
+                        padding:10,10
+                        pos_hint:{'center_x':0.5,'center_y':0.5}
+                        Label:
+                            text:'[size=20]Let your friends know that you are\n   on [b]kivytalk[/b] by adding them!!![/size]'
+                            markup:True
+                            text_size:self.width,None
+                            size:self.texture_size
+                            halign:'center'
+                            valign:'center'
+                            color:0,0,0,1
+                            
+                            
+                    BoxLayout:
+                        orientation:'horizontal'
+                        size_hint:1,0.2
+                        nav1:nav1
+                        padding:10,10
+                        Label:
+                            text:'[size=20]   Start chating[/size] '
+                            markup:True
+                            color:0,0,0,1
+                            text_size:self.width,None
+                            size:self.texture_size
+                            pos_hint:{'center_x':0.5,'center_y':0.5}
+                        NavigationDrawerIconButton:
+                            id:nav1
+                            icon:'long-arrow-right'
+                            on_press:root.animate()
+                            size_hint:0.2,None
+                        ImageButton:
+                            source:'kt10.jpg'
+                            size:self.size
+                            pos:self.pos
+                    BoxLayout:
+                        size_hint:1,0.2
+
+
+#############################################################################
+            Screen:
+
+                name: "screen_two"
+                bx:bx
+                bx1:bx1
+                BoxLayout:
+                    orientation:'vertical'
+                    id:bx
+                    BoxLayout:
+                        size_hint:1,0.5
+                        orientation:'vertical'
+                        id:bx1
+                        canvas:
+                            Color:
+                                rgba:1,1,1,1
+                            Rectangle:
+                                size:self.size
+                                pos:self.pos
+                                source:'kt42.jpg'
+                        MDIconButton:
+                            icon:'close-circle'
+                            on_press:root.closeit()
+                        Image:
+                            source:'kt9.png'
+                        Label:
+                            text:'[size=18sp]Share your thought in any form that automatically disappear after 24 hours[/size]'
+                            markup:True
+                            padding:10,10
+                            color:255,255,0,1
+                            valign:'center'
+                            halign:'center'
+                            
+                            text_size:self.width,None
+                            size:self.texture_size
+                    BoxLayout:
+                        orientation:'vertical'
+                        ScrollView:
+                            BoxLayout:
+                                orientation:"vertical"
+                                size_hint_y:None
+                                height:Window.height * 1
+                                canvas:
+                                    Color:
+                                        rgba:1,1,1,1
+                                    Rectangle:
+                                        size:self.size
+                                        pos:self.pos
+                                        source:'we.jpg'
+                                BoxLayout:
+                                    size_hint:1,0.5
+                                    orientation:'vertical'
+                                    padding:0,10
+                                    canvas:
+                                        Color:
+                                            rgba:1,1,1,1
+                                        Rectangle:
+                                            size:self.size
+                                            pos:self.pos
+                                    BoxLayout:
+                                        size_hint:1,None
+                                        height:50
+                                        padding:10,10
+                                        Image:
+                                            source:'kt18.png'
+                                            size_hint:None,None
+                                            width:50
+                                            height:40
+                                        Button:
+                                            text:'[b][size=18]    My Status[/size][/b]'
+                                            markup:True
+                                            text_size: self.size
+                                            halign: 'left'
+                                            valign: 'center'
+                                            background_color:0,0,0,0
+                                            color:0,0,0,1
+                                    BoxLayout:
+                                        size_hint:1,None
+                                        height:25
+                                        canvas:
+                                            Color:
+                                                rgba:0,0,0,0.1
+                                            Rectangle:
+                                                size:self.size
+                                                pos:self.pos
+                                        Label:
+                                            text:'[color=(0,0,0,1)]Recent Updates[/color]'
+                                            markup:True
+                                    BoxLayout:
+                                        size_hint_y:0.02
+                                    BoxLayout:
+                                        size_hint:1,None
+                                        height:50
+                                        padding:10,10
+                                        Image:
+                                            source:'kt36.png'
+                                            size_hint:None,None
+                                            width:50
+                                            padding:10,10
+                                            height:40
+                                        Button:
+                                            text:'[b][size=18]    Friend\'s Status[/size][/b]'
+                                            markup:True
+                                            text_size: self.size
+                                            halign: 'left'
+                                            valign: 'center'
+                                            background_color:0,0,0,0
+                                            color:0,0,0,1
+                                    BoxLayout:
+                                        size_hint:1,None
+                                        height:25
+                                        canvas:
+                                            Color:
+                                                rgba:0,0,0,0.1
+                                            Rectangle:
+                                                size:self.size
+                                                pos:self.pos
+                                        Label:
+                                            text:'[color=(0,0,0,1)]Viewed Updates[/color]'
+                                            markup:True
+                                    BoxLayout:
+                                        size_hint_y:0.02
+                                    BoxLayout:
+                                        size_hint:1,None
+                                        height:50
+                                        padding:10,0
+                                        Image:
+                                            source:'kt36.png'
+                                            size_hint:None,None
+                                            width:50
+                                            padding:10,10
+                                            height:40
+                                        Button:
+                                            text:'[b][size=18]    Viewed Status[/size][/b]'
+                                            markup:True
+                                            text_size: self.size
+                                            halign: 'left'
+                                            valign: 'center'
+                                            background_color:0,0,0,0
+                                            color:0,0,0,1
+                                        NavigationDrawerIconButton:
+                                            icon:'thumb-up'
+                                    
+                                    BoxLayout:
+                                        size_hint_y:0.9
+                                        orientation:'vertical'
+                                        Image:
+                                            source:'kt43.png'
+                                            size_hint_x:None
+                                            width:50
+                                            pos_hint:{'center_x':0.9,'center_y':0.5}
+                                            
+                                        
+                                        Image:
+                                            source:'kt45.png'
+                                            size_hint_x:None
+                                            width:50
+                                            pos_hint:{'center_x':0.9,'center_y':0.5}
+                                    BoxLayout:
+                                        size_hint_y:0.9
+
+                                        
+
+                            
+                        
+                                                    
+
+            Screen:
+
+                name: "screen_three"
+                BoxLayout:
+                    orientation: 'vertical'
+                    padding:10,10
+                    canvas:
+                        Color:
+                            rgba:1,1,1,1
+                        Rectangle:
+                            size:self.size
+                            pos:self.pos
+                            source:'we.jpg'
+                    Label:
+                        text:'[size=20]To start calling contacts tap the bird at the bottom of the screen[/size]'
+                        markup:True
+                        color:0,0,0,1
+                        text_size:self.width,None
+                        size:self.texture_size
+                        halign:'center'
+                        valign:'center'
+                    Image:
+                        source:'kt7.png'
+                        size_hint:0.2,0.2
+                        id:nav2
+                        pos_hint:{'center_x':0.9,'center_y':0.7}
+

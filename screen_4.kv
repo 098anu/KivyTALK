@@ -1,0 +1,43 @@
+<Screen4@Screen>:
+    name:'screen_4'
+    BoxLayout:
+        orientation:'vertical'
+        canvas:
+            Color:
+                rgba:1,1,1,1
+            Rectangle:
+                size:self.size
+                pos:self.pos
+                source:'df1.jpg'
+
+        
+        BoxLayout:
+            size_hint:1,0.2
+            canvas:
+                Color:
+                    rgba:0,0,0,0.4
+                Rectangle:
+                    size:self.size
+                    pos:self.pos
+            Label:
+                text:'[b][size=20]Terms Of Use[/size][/b]'
+                markup:True
+                size_hint:1,None
+                height:50
+
+        BoxLayout:
+            orientation:'vertical'
+            Label:
+            	text:'a)This app is created by kivy\n\nb)You must know how to type\nif you want to use this app\n\nc)if you can\'t see then kindly ask someone to tick texttospeech mode\n\nd)if you can\'t write then say ok kivy and all what you will speack will be typed\n\n f)If you agree then please click OK and continue.'
+                text_size:root.width,None
+                size:self.texture_size
+            Button:
+                text:'OK'
+                size_hint:0.7,None
+                height:40
+                background_color:0,0,0,0.5
+                pos_hint:{'center_x':0.5,'center_y':0.5}
+                on_press:app.root.current='screen_3'                
+                
+        BoxLayout:
+            size_hint:1,0.2

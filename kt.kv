@@ -1,0 +1,42 @@
+#:import NoTransition kivy.uix.screenmanager.NoTransition
+#:include Screen_1.kv
+#:include Screen_2.kv
+#:include Screen_3.kv
+#:include Screen_4.kv
+#:include Screen_5.kv
+#:include Screen_6.kv
+#:include Screen_7.kv
+ScreenManager:
+    transition:NoTransition()
+    Screen:
+        name:'main_screen'
+        BoxLayout:
+            canvas:
+                Color:
+                    rgba:1,1,1,1
+                Rectangle:
+                    size:self.size
+                    pos:self.pos
+                    
+            Button:
+                background_normal:'logo.png'
+                background_down:'logo.png'
+                size:self.size
+                pos:self.pos
+                on_press:app.root.current='screen_1'
+
+    Screen1:
+
+    Screen2:
+
+    Screen3:
+        id:scr3
+
+    Screen4:
+
+    Screen5:
+
+    Screen6:
+        id:annav
+
+    Screen7:
